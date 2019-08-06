@@ -56,6 +56,14 @@
 #define CYCLES_PER_MICROSECOND (F_CPU / 1000000L) // 16 or 20
 #define INT0_PRESCALER 8
 
+// Highly granular delays for step pulses, etc.
+#define DELAY_0_NOP NOOP
+#define DELAY_1_NOP __asm__("nop\n\t")
+#define DELAY_2_NOP DELAY_1_NOP; DELAY_1_NOP
+#define DELAY_3_NOP DELAY_1_NOP; DELAY_2_NOP
+#define DELAY_4_NOP DELAY_1_NOP; DELAY_3_NOP
+#define DELAY_5_NOP DELAY_1_NOP; DELAY_4_NOP
+
 // Nanoseconds per cycle
 #define NANOSECONDS_PER_CYCLE (1000000000.0 / F_CPU)
 
