@@ -21,6 +21,11 @@
  */
 
 /**
+ * To enable BLTouch on this configuration, uncomment next line.
+ */
+// #define GEEETECH_A20M_BLTOUCH
+
+/**
  * Configuration.h
  *
  * Basic settings such as:
@@ -739,7 +744,9 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
+#ifdef GEEETECH_A20M_BLTOUCH
 #define BLTOUCH
+#endif /* GEEETECH_A20M_BLTOUCH */
 #if ENABLED(BLTOUCH)
   #define BLTOUCH_DELAY 675   // (ms) Enable and increase if needed
 #endif
@@ -987,7 +994,9 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
+#ifdef GEEETECH_A20M_BLTOUCH
 #define AUTO_BED_LEVELING_BILINEAR
+#endif /* GEEETECH_A20M_BLTOUCH */
 //#define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
 
@@ -1154,7 +1163,9 @@
 // - Move the Z probe (or nozzle) to a defined XY point before Z Homing when homing all axes (G28).
 // - Prevent Z homing when the Z probe is outside bed area.
 //
+#ifdef GEEETECH_A20M_BLTOUCH
 #define Z_SAFE_HOMING
+#endif /* GEEETECH_A20M_BLTOUCH */
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT ((X_BED_SIZE) / 2)    // X point for Z homing when homing all axes (G28).
