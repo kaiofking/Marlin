@@ -26,6 +26,11 @@
 // #define GEEETECH_A20M_BLTOUCH
 
 /**
+ * To enable support for custom extruders from MK2 on is configuration, uncomment next line.
+ */
+// #define GEEETECH_A20M_CUSTOM_EXTRUDERS
+
+/**
  * Configuration.h
  *
  * Basic settings such as:
@@ -625,7 +630,11 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
+#ifdef GEEETECH_A20M_CUSTOM_EXTRUDERS
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.3, 80.8, 400, 93 }  // Orig { 80, 80, 4000, 500 } 93*2 = DRV8825 1/32 Stepps
+#else /* GEEETECH_A20M_CUSTOM_EXTRUDERS */
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.3, 80.8, 400, 340 }  // Orig { 80, 80, 4000, 500 } 93*2 = DRV8825 1/32 Stepps
+#endif /* GEEETECH_A20M_CUSTOM_EXTRUDERS */
 
 /**
  * Default Max Feed Rate (mm/s)
